@@ -9,12 +9,15 @@ import javax.persistence.Id;
  */
 @Entity
 public class User {
+
     @Id
-    @GeneratedValue
-    private String id;
+    @GeneratedValue()
+    private Long id;
+
     private String name;
     private String age;
     private double money;
+
 
     public double getMoney() {
         return money;
@@ -24,11 +27,11 @@ public class User {
         this.money = money;
     }
 
-    public String getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

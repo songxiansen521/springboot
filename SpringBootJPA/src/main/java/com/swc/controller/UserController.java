@@ -24,11 +24,12 @@ public class UserController {
         return userRepository.findAll();
     }
 
-    @RequestMapping("/{id}")
-    public User getById(@RequestParam("id")String id){
-        return (User) userRepository.findOne(id);
+    @RequestMapping("/findById")
+    public User getById(@RequestParam("id") String id){
+        return (User) userRepository.findOne( Integer.valueOf(id));
     }
 
+    @RequestMapping("/save")
     public String addUser(@RequestParam("name")String name,@RequestParam("money")double money,@RequestParam("age")String age){
         User user = new User();
         user.setName(name);
@@ -37,6 +38,5 @@ public class UserController {
         return userRepository.save(user).toString();
 
     }
-
 
 }
